@@ -1,0 +1,138 @@
+<div class="container" style="margin-top: 10px">
+
+    <div class="well">
+        <h1>Análise de Crédito</h1>
+    </div>
+
+    <form name="formAnaliseCredito">
+        
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input ng-blur ng-model="analise.nome" ng-minlength="2" type="text" class="form-control" required />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input ng-blur ng-model="analise.cpf" type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">                    
+            <div class="col-xs-2">
+                <div class="form-group">
+                    <label>Idade</label>
+                    <input ng-blur ng-model="analise.idade" required type="number" class="form-control" required />
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="form-group">
+                    <label>Sexo</label>
+                    <select ng-blur class="form-control form-control-lg" name="sexo" ng-model="analise.sexo" required>
+                            <option value=""></option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="form-group">
+                    <label>Estado Civil</label>                      
+                    <select ng-blur class="form-control form-control-lg" name="estadoCivil" ng-model="analise.estadoCivil" required>
+                        <option value=""></option>
+                        <option value="1">Casado(a)</option>
+                        <option value="2">Divorciado(a)</option>
+                        <option value="3">Separado(a)</option>
+                        <option value="4">Solteiro(a)</option>
+                        <option value="5">Viúvo(a)</option>
+                    </select>
+                </div>                        
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select ng-blur class="form-control form-control-lg" name="estado" ng-model="analise.estado" required>
+                        <option value=""></option>
+                        <option value="11">Rondônia</option>
+                        <option value="12">Acre</option>
+                        <option value="13">Amazonas</option>
+                        <option value="14">Roraima</option>
+                        <option value="15">Pará</option>
+                        <option value="16">Amapá</option>
+                        <option value="17">Tocantins</option>
+                        <option value="21">Maranhão</option>
+                        <option value="22">Piauí</option>
+                        <option value="23">Ceará</option>
+                        <option value="24">Rio Grande do Norte</option>
+                        <option value="25">Paraíba</option>
+                        <option value="26">Pernambuco</option>
+                        <option value="27">Alagoas</option>
+                        <option value="28">Sergipe</option>
+                        <option value="29">Bahia</option>
+                        <option value="31">Minas Gerais</option>
+                        <option value="32">Espírito Santo</option>
+                        <option value="33">Rio de Janeiro</option>
+                        <option value="35">São Paulo</option>
+                        <option value="41">Paraná</option>
+                        <option value="42">Santa Catarina</option>
+                        <option value="43">Rio Grande do Sul</option>
+                        <option value="50">Mato grosso do Sul</option>
+                        <option value="51">Mato Grosso</option>
+                        <option value="52">Goiás</option>
+                        <option value="53">Distrito Federal</option>
+                    </select>
+                </div> 
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>Dependentes</label>
+                    <input ng-blur ng-model="analise.dependentes" required type="text" class="form-control" required />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>Renda</label>
+                    <input ng-blur ng-model="analise.renda" required type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+                        
+        <ng-analise-submit submit="adiciona(analise)"></ng-analise-submit>
+    </form>
+
+    <hr>
+
+    <table class="table">
+            <thead>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+                <th>Estado Civil</th>
+                <th>Estado</th>
+                <th>Dependentes</th>
+                <th>Renda</th>
+                <th>Resultado</th>
+                <th>Limite de crédito</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="analise in analises">
+                    <td>{{analise.nome | upper}}</td>
+                    <td>{{analise.cpf}}</td>
+                    <td>{{analise.idade}}</td>
+                    <td>{{analise.sexo}}</td>
+                    <td>{{analise.estadoCivil}}</td>
+                    <td>{{analise.estado}}</td>
+                    <td>{{analise.dependentes}}</td>
+                    <td>{{analise.renda}}</td>
+                    <td>{{analise.resultado}}</td>
+                    <td>{{analise.limiteDeCredito}}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
